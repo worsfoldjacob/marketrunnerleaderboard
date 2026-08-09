@@ -88,7 +88,7 @@ h2 {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.control-panel,
+.filter-details,
 .leaderboard-panel {
     background: linear-gradient(145deg, rgba(19, 25, 30, 0.98), rgba(8, 12, 14, 0.98));
     border: 1px solid rgba(92, 255, 40, 0.18);
@@ -96,12 +96,65 @@ h2 {
     box-shadow: 0 18px 40px var(--shadow);
 }
 
+.filter-details {
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.filter-summary {
+    align-items: center;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    font-size: 13px;
+    font-weight: 800;
+    gap: 12px;
+    justify-content: space-between;
+    list-style: none;
+    min-height: 50px;
+    padding: 14px 16px;
+    text-transform: uppercase;
+}
+
+.filter-summary::-webkit-details-marker {
+    display: none;
+}
+
+.filter-summary span:last-child {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.filter-summary::after {
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    color: var(--green);
+    content: "+";
+    display: inline-flex;
+    flex: 0 0 28px;
+    height: 28px;
+    justify-content: center;
+}
+
+.filter-details[open] .filter-summary {
+    border-bottom: 1px solid var(--line);
+}
+
+.filter-details[open] .filter-summary::after {
+    content: "-";
+}
+
+.filter-summary:focus-visible {
+    outline: 3px solid rgba(92, 255, 40, 0.28);
+    outline-offset: -3px;
+}
+
 .control-panel {
     align-items: end;
     display: grid;
     gap: 12px;
     grid-template-columns: minmax(340px, 1.25fr) minmax(270px, 1fr) minmax(230px, 0.85fr) minmax(260px, 0.95fr) 140px;
-    margin-bottom: 16px;
     padding: 14px;
 }
 
@@ -393,7 +446,7 @@ td {
 
 @media (max-width: 620px) {
     .site-shell {
-        padding: 16px;
+        padding: 12px;
     }
 
     .leaderboard-title-logo {
@@ -408,6 +461,73 @@ td {
     .panel-heading {
         align-items: flex-start;
         flex-direction: column;
+        padding: 12px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .filter-summary {
+        padding: 12px;
+    }
+
+    .filter-summary span:last-child {
+        display: none;
+    }
+
+    .control-panel {
+        padding: 12px;
+    }
+
+    fieldset {
+        gap: 6px;
+    }
+
+    label {
+        flex: 1 1 auto;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    .code-field {
+        justify-content: stretch;
+        width: 100%;
+    }
+
+    table {
+        min-width: 640px;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+    }
+
+    .rank {
+        font-size: 16px;
+    }
+
+    .first-place .rank {
+        font-size: 18px;
+    }
+
+    .broker-cell {
+        gap: 6px;
+    }
+
+    .broker-cell img,
+    .fallback-logo {
+        height: 24px;
+        min-width: 44px;
+        padding: 3px 5px;
+        width: 44px;
+    }
+
+    .broker-cell span:last-child {
+        max-width: 112px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
 }

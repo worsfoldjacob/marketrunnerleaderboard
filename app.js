@@ -143,9 +143,9 @@
                 "<tr" + rowClass + ">",
                 "<td class=\"rank\">#" + (index + 1) + "</td>",
                 "<td><span class=\"runner-name\">" + escapeHtml(String(entry.display_name || "Player")) + "</span></td>",
-                "<td><span class=\"broker-cell\">" + brokerBadge + "<span>" + brokerName + "</span></span></td>",
-                "<td>" + formatInteger(entry.level) + "</td>",
                 "<td class=\"metric-value\">" + score + "</td>",
+                "<td>" + formatInteger(entry.level) + "</td>",
+                "<td><span class=\"broker-cell\">" + brokerBadge + "<span>" + brokerName + "</span></span></td>",
                 "<td>" + platform + "</td>",
                 "</tr>"
             ].join("");

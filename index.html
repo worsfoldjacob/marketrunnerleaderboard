@@ -14,29 +14,37 @@
             <h1 class="sr-only">Leaderboard</h1>
         </header>
 
-        <section class="control-panel" aria-label="Leaderboard filters">
-            <fieldset>
-                <legend>Period</legend>
-                <label><input type="radio" name="period" value="all_time" checked> All Time</label>
-                <label><input type="radio" name="period" value="this_month"> Month</label>
-                <label><input type="radio" name="period" value="today"> Today</label>
-            </fieldset>
-            <fieldset>
-                <legend>Device</legend>
-                <label><input type="radio" name="device" value="all" checked> All</label>
-                <label><input type="radio" name="device" value="pc"> PC</label>
-                <label><input type="radio" name="device" value="mobile"> Mobile</label>
-            </fieldset>
-            <fieldset>
-                <legend>Metric</legend>
-                <label><input type="radio" name="metric" value="balance" checked> Balance</label>
-                <label><input type="radio" name="metric" value="prestige"> Prestige</label>
-            </fieldset>
-            <label class="code-field">
-                <span>Leaderboard Code</span>
-                <input id="board-code" type="text" inputmode="text" autocomplete="off" placeholder="Optional code">
-            </label>
-            <button id="refresh-button" type="button">Refresh</button>
+        <section class="filters-section" aria-label="Leaderboard filters">
+            <details class="filter-details">
+                <summary class="filter-summary">
+                    <span>Filters</span>
+                    <span>Period, device, metric, code</span>
+                </summary>
+                <div class="control-panel">
+                    <fieldset>
+                        <legend>Period</legend>
+                        <label><input type="radio" name="period" value="all_time" checked> All Time</label>
+                        <label><input type="radio" name="period" value="this_month"> Month</label>
+                        <label><input type="radio" name="period" value="today"> Today</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Device</legend>
+                        <label><input type="radio" name="device" value="all" checked> All</label>
+                        <label><input type="radio" name="device" value="pc"> PC</label>
+                        <label><input type="radio" name="device" value="mobile"> Mobile</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Metric</legend>
+                        <label><input type="radio" name="metric" value="balance" checked> Balance</label>
+                        <label><input type="radio" name="metric" value="prestige"> Prestige</label>
+                    </fieldset>
+                    <label class="code-field">
+                        <span>Leaderboard Code</span>
+                        <input id="board-code" type="text" inputmode="text" autocomplete="off" placeholder="Optional code">
+                    </label>
+                    <button id="refresh-button" type="button">Refresh</button>
+                </div>
+            </details>
         </section>
 
         <section class="leaderboard-panel">
@@ -50,9 +58,9 @@
                         <tr>
                             <th>Rank</th>
                             <th>Runner</th>
-                            <th>Broker</th>
-                            <th>Level</th>
                             <th class="metric-heading">Balance</th>
+                            <th>Level</th>
+                            <th>Broker</th>
                             <th>Platform</th>
                         </tr>
                     </thead>
