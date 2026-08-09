@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Market Runner Leaderboard</title>
+    <link rel="icon" type="image/png" href="assets/New_Icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="site-shell">
+        <header class="masthead">
+            <img src="assets/leaderboard_title.png" class="leaderboard-title-logo" alt="Leaderboard">
+            <h1 class="sr-only">Leaderboard</h1>
+        </header>
+
+        <section class="control-panel" aria-label="Leaderboard filters">
+            <fieldset>
+                <legend>Period</legend>
+                <label><input type="radio" name="period" value="all_time" checked> All Time</label>
+                <label><input type="radio" name="period" value="this_month"> Month</label>
+                <label><input type="radio" name="period" value="today"> Today</label>
+            </fieldset>
+            <fieldset>
+                <legend>Device</legend>
+                <label><input type="radio" name="device" value="all" checked> All</label>
+                <label><input type="radio" name="device" value="pc"> PC</label>
+                <label><input type="radio" name="device" value="mobile"> Mobile</label>
+            </fieldset>
+            <fieldset>
+                <legend>Metric</legend>
+                <label><input type="radio" name="metric" value="balance" checked> Balance</label>
+                <label><input type="radio" name="metric" value="prestige"> Prestige</label>
+            </fieldset>
+            <label class="code-field">
+                <span>Leaderboard Code</span>
+                <input id="board-code" type="text" inputmode="text" autocomplete="off" placeholder="Optional code">
+            </label>
+            <button id="refresh-button" type="button">Refresh</button>
+        </section>
+
+        <section class="leaderboard-panel">
+            <div class="panel-heading">
+                <h2 id="table-title">Global Top 20</h2>
+                <span id="status-pill" class="status-pill">Loading</span>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Runner</th>
+                            <th>Broker</th>
+                            <th>Level</th>
+                            <th class="metric-heading">Balance</th>
+                            <th>Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
