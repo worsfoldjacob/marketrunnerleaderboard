@@ -227,11 +227,7 @@
 
     function formatMoney(value) {
         var number = Number(value || 0);
-        return new Intl.NumberFormat(undefined, {
-            style: "currency",
-            currency: "USD",
-            maximumFractionDigits: 0
-        }).format(number);
+        return new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 }).format(number);
     }
 
     function formatInteger(value) {
