@@ -38,10 +38,18 @@
     var elements = {
         body: document.getElementById("leaderboard-body"),
         button: document.getElementById("refresh-button"),
+        filterDetails: document.querySelector(".filter-details"),
         status: document.getElementById("status-pill"),
         tableTitle: document.getElementById("table-title"),
         metricHeading: document.querySelector(".metric-heading")
     };
+
+    function initializeFilterPanel() {
+        if (!elements.filterDetails) {
+            return;
+        }
+        elements.filterDetails.open = window.matchMedia("(min-width: 621px)").matches;
+    }
 
     function readControls() {
         state.period = checkedValue("period", state.period);
@@ -243,6 +251,7 @@
         });
     }
 
+    initializeFilterPanel();
     document.querySelectorAll("input[type=\"radio\"]").forEach(function (input) {
         input.addEventListener("change", refreshLeaderboard);
     });
