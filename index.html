@@ -17,10 +17,18 @@
         <section class="filters-section" aria-label="Leaderboard filters">
             <details class="filter-details">
                 <summary class="filter-summary">
-                    <span>Filters</span>
-                    <span>Period, device, metric, code</span>
+                    <span id="filter-summary-label">Highscore, All Time, All Devices</span>
+                    <span>Mode, period, version, device</span>
                 </summary>
                 <div class="control-panel">
+                    <fieldset>
+                        <legend>Leaderboard</legend>
+                        <label><input type="radio" name="leaderboard" value="highscore" checked> Highscore</label>
+                        <label><input type="radio" name="leaderboard" value="prestige"> Prestige</label>
+                        <label><input type="radio" name="leaderboard" value="hardcore"> Hardcore</label>
+                        <label><input type="radio" name="leaderboard" value="survival"> Survival</label>
+                        <label><input type="radio" name="leaderboard" value="pvp"> PVP</label>
+                    </fieldset>
                     <fieldset>
                         <legend>Period</legend>
                         <label><input type="radio" name="period" value="all_time" checked> All Time</label>
@@ -34,12 +42,12 @@
                         <label><input type="radio" name="device" value="mobile"> Mobile</label>
                     </fieldset>
                     <fieldset>
-                        <legend>Metric</legend>
-                        <label><input type="radio" name="metric" value="balance" checked> Balance</label>
-                        <label><input type="radio" name="metric" value="prestige"> Prestige</label>
+                        <legend>Version</legend>
+                        <label><input type="radio" name="version" value="all" checked> All</label>
+                        <label><input type="radio" name="version" value="current"> Current (1.3.0)</label>
                     </fieldset>
                     <label class="code-field">
-                        <span>Leaderboard Code</span>
+                        <span>Private Board Code</span>
                         <input id="board-code" type="text" inputmode="text" autocomplete="off" placeholder="Optional code">
                     </label>
                     <button id="refresh-button" type="button">Refresh</button>
@@ -49,23 +57,28 @@
 
         <section class="leaderboard-panel">
             <div class="panel-heading">
-                <h2 id="table-title">Global Top 20</h2>
+                <h2 id="table-title">Global Highscore Top 100 - All Time</h2>
                 <span id="status-pill" class="status-pill">Loading</span>
             </div>
+            <p id="pvp-stats" class="mode-summary" hidden></p>
             <div class="table-wrap">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Runner</th>
-                            <th class="metric-heading">Balance</th>
-                            <th>Level</th>
-                            <th>Broker</th>
-                            <th>Platform</th>
-                        </tr>
-                    </thead>
+                    <thead id="leaderboard-head"></thead>
                     <tbody id="leaderboard-body"></tbody>
                 </table>
+            </div>
+        </section>
+
+        <section id="profile-panel" class="profile-panel" hidden aria-labelledby="profile-title">
+            <div class="profile-card">
+                <div class="profile-heading">
+                    <div>
+                        <span class="profile-kicker">Public profile snapshot</span>
+                        <h2 id="profile-title">Player</h2>
+                    </div>
+                    <button id="profile-close" class="profile-close" type="button" aria-label="Close profile">×</button>
+                </div>
+                <div id="profile-body"></div>
             </div>
         </section>
     </main>
