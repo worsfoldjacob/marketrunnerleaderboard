@@ -420,6 +420,7 @@
 
     initializeFilterPanel();
     syncCodeField();
+    elements.profilePanel.hidden = true;
     document.querySelectorAll("input[type=\"radio\"]").forEach(function (input) {
         input.addEventListener("change", refreshLeaderboard);
     });

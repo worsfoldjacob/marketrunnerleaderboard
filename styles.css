@@ -476,6 +476,10 @@ td {
     z-index: 10;
 }
 
+.profile-panel[hidden] {
+    display: none;
+}
+
 .profile-card {
     background: linear-gradient(145deg, #151b20, #080c0e);
     border: 1px solid rgba(92, 255, 40, 0.45);
